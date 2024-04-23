@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* Styles for card layout */
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            background-color:; /* Light gray background */
+        }
+
+        /* Department name styling */
+        .card h2
+        {
+            margin: 0; /* Remove default margin */
+            padding: 10px; /* Add padding for better spacing */
+            background-color:#0000FF; /* Blue background */
+            color: white; /* White text color */
+            border-top-left-radius: 10px; /* Rounded corners */
+            border-top-right-radius: 10px;
+            text-align: center;
+        }
+
+        /* Department details styling */
+        .card p {
+            margin: 0; /* Remove default margin */
+            padding: 10px; /* Add padding for better spacing */
+        }
+
+        /* Styles for the main title */
+        h1 {
+            margin-top: 20px;
+            text-align: center; /* Center align the title */
+        }
+
+        /* Container width */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Background color for body */
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+            font-family: Arial, sans-serif;
+
+        }
+
+        .card p:hover {
+            background-color: #e9ecef; /* Light gray background on hover */
+        }
+    </style>
+</head>
+
+<body>
+{% extends 'Base.html' %}
+
+{% block content %}
+<h2>OUR DEPARTMENTS</h2>
+    {% for i in dep %}
+    <div class="container">
+
+        <div class="card text-black  mb-3" style="width:95%;">
+            <h2>{{ i.dep_name }}</h2>
+            <p>{{ i.dep_details }}</p>
+            <p class="card-text">{{ i.Dep_details }}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+    <style>
+    /* General styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    /* Card styles */
+    .card {
+        margin-top: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .card-details {
+        font-size: 0.9rem;
+        color: #777;
+    }
+
+    /* Team section styles */
+    h1 {
+        color: #333;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-top: 30px; /* Adjust as needed */
+    }
+
+    .team-members {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .team-member {
+        width: calc(33.33% - 20px);
+        margin-bottom: 20px;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        .team-member {
+            width: calc(50% - 20px);
+        }
+    }
+
+    @media (max-width: 576px) {
+        .team-member {
+            width: calc(100% - 20px);
+        }
+    }
+</style>
+
+
+</head>
+<body>
+{% extends 'Base.html' %}
+{% block content %}
+{% load static %}
+<h1>OUR TEAM</h1>
+<body style="background-image: url('https://coloradopaincare.com/wp-content/uploads/2021/06/shutterstock_429583954.jpg');">
+<div class="container mt-3">
+
+    <div class="row">
+    {% for i in doc %}
+
+        <div class="col-md-4">
+    <h2>{{i.doctor_name}}</h2>
+    <p>{{i.doctor_special}}</p>
+    <div class="card" style="width:18rem;height: 85%;">
+        <img class="card-img-top" src="{{i.Doctor_img.url}}" alt="card image"style="height: 280px; width: 100%;" />
+        <div class="card-body" style="height: 130px;">
+            <h5 class="card-title">{{i.Doctor_name}}</h5>
+            <p class="card-text">{{i.Doctor_special}}</p>
+            <p class="card-details">{{i.Dep_details}}</p>
+        </div>
+    </div>
+        </div>
+
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+</body>
+</html>
